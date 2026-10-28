@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>scripple.oi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="join" class="panel">
+    <h1>scripple.oi</h1>
+    <p>Draw the word. Guess the drawings.</p>
+    <input id="name" placeholder="Your name" maxlength="16" autocomplete="off">
+    <input id="room" placeholder="Room code (blank for a new room)" maxlength="5" autocomplete="off">
+    <button id="go">Play</button>
+  </main>
+
+  <main id="game" hidden>
+    <header>
+      <span id="roundInfo"></span>
+      <b id="hint"></b>
+      <span id="timer"></span>
+    </header>
+    <section class="stage">
+      <aside>
+        <ol id="players"></ol>
+        <button id="start" hidden>Start game</button>
+        <p id="code"></p>
+      </aside>
+      <div class="boardwrap">
+        <div class="canvasrow">
+          <div id="axis" aria-label="Height scale"></div>
+          <canvas id="board" width="800" height="560"></canvas>
+          <div id="overlay" hidden></div>
+        </div>
+        <div id="tools" hidden></div>
+      </div>
+      <aside class="chat">
+        <div id="log"></div>
+        <input id="msg" placeholder="Type your guess" maxlength="60" autocomplete="off">
+      </aside>
+    </section>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
